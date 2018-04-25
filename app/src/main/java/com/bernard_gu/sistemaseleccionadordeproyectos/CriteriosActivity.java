@@ -1,5 +1,6 @@
 package com.bernard_gu.sistemaseleccionadordeproyectos;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,13 +51,16 @@ public class CriteriosActivity extends AppCompatActivity implements View.OnClick
         lstView = (ListView) findViewById(R.id.listview);
         adbCriterio = new CustomListView(CriteriosActivity.this, 0, Criterio.listaCriterios);
         lstView.setAdapter(adbCriterio);
+        //refreshPonderaciones();
         Toast.makeText(this, "ListView: " + Integer.toString(adbCriterio.getCount()), Toast.LENGTH_SHORT).show();
     }
 
     //This funciton is called when AddCriterio Button is pressed
     void addCriterio() {
-        int i;
+        Intent myIntent = new Intent(CriteriosActivity.this, AddCriterioActivity.class);
+        CriteriosActivity.this.startActivity(myIntent);
     }
+
     //This function is called when Refresh Button is pressed
     void refreshPonderaciones() {
         //Initialize an acumulator for ponderaciones

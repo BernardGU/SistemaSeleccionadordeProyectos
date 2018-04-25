@@ -79,7 +79,7 @@ public class CustomListView extends ArrayAdapter<Criterio>{
                 holder.txtViewTipo.setText("Cuantitativo");
             else
                 holder.txtViewTipo.setText("Cualitativo");
-            holder.edtTxtPonderacion.setText(criterios.get(position).getPonderacion());
+            holder.edtTxtPonderacion.setText(Integer.toString(criterios.get(position).getPonderacion()));
 
 
         } catch (Exception e) {
