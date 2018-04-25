@@ -26,23 +26,24 @@ public class CriteriosActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_criterios);
 
         //Declare Important Views
-        imgBtnAddCriterio = (ImageButton) findViewById(R.id.imgBtnAddCriterio);
-        imgBtnRefresh = (ImageButton) findViewById(R.id.imgBtnRefresh);
-        imgBtnNext = (ImageButton) findViewById(R.id.imgBtnNext);
+
         txtTotal = (TextView) findViewById(R.id.txtTotal);
 
         //Set OnClickListeners
+        imgBtnAddCriterio = (ImageButton) findViewById(R.id.imgBtnAddCriterio);
+        imgBtnRefresh = (ImageButton) findViewById(R.id.imgBtnRefresh);
+        imgBtnNext = (ImageButton) findViewById(R.id.imgBtnNext);
         imgBtnAddCriterio.setOnClickListener(this);
         imgBtnRefresh.setOnClickListener(this);
         imgBtnNext.setOnClickListener(this);
 
         //Añadir los criterios iniciales
         if(Criterio.listaCriterios.size() == 0) {
-            Criterio.addCriterio(new Criterio("Duración", true, false, 40));
-            Criterio.addCriterio(new Criterio("Valor presente neto", true, true, 30));
-            Criterio.addCriterio(new Criterio("Periodo de recuperación", true, false, 5));
-            Criterio.addCriterio(new Criterio("Riesgo", false, false, 15));
-            Criterio.addCriterio(new Criterio("Generación de tecnología", false, true, 10));
+            Criterio.addCriterio(new Criterio("Duración", true, false, 0));
+            Criterio.addCriterio(new Criterio("Valor presente neto", true, true, 0));
+            Criterio.addCriterio(new Criterio("Periodo de recuperación", true, false, 0));
+            Criterio.addCriterio(new Criterio("Riesgo", false, false, 0));
+            Criterio.addCriterio(new Criterio("Generación de tecnología", false, true, 0));
         }
 
         Toast.makeText(this, "Criterios: " + Integer.toString(Criterio.listaCriterios.size()), Toast.LENGTH_SHORT).show();
@@ -86,7 +87,8 @@ public class CriteriosActivity extends AppCompatActivity implements View.OnClick
     }
     //This function is called when Next Button is pressed
     void nextScreen() {
-        int i;
+        Intent myIntent = new Intent(CriteriosActivity.this, RegistroProyectosActivity.class);
+        CriteriosActivity.this.startActivity(myIntent);
     }
 
     @Override
