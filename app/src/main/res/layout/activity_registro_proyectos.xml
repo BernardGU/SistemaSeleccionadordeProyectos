@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom|center"
+    android:orientation="vertical"
+    tools:context="com.bernard_gu.sistemaseleccionadordeproyectos.RegistroProyectosActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtId"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Identificador"
+                android:textAlignment="textEnd"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edtTxtId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="10 characteres máximo"
+                android:inputType="text"
+                android:maxLength="10"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="686dp"
+                tools:layout_editor_absoluteY="361dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtDescripcion"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Descripción"
+                android:textAlignment="textEnd"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edtTxtDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:ems="10"
+                android:hint="250 characteres máximo"
+                android:inputType="textAutoCorrect|textAutoComplete|textMultiLine"
+                android:maxLength="250"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="686dp"
+                tools:layout_editor_absoluteY="361dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtCosto"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Costo"
+                android:textAlignment="textEnd"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edtTxtCosto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="$"
+                android:inputType="number|numberDecimal"
+                android:maxLength="10"
+                android:textAlignment="textEnd"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="686dp"
+                tools:layout_editor_absoluteY="361dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lstViewProyectos"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="236dp">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|center"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnAddProyecto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="añadir proyecto"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.29"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imgBtnNext"
+                android:layout_width="50dp"
+
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/holo_blue_dark"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_forward_black_24dp" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
