@@ -44,7 +44,6 @@ public class Criterio {
 
     public static void addCriterio(Criterio c) {
         Criterio.listaCriterios.add(c);
-        Criterio.cantCriterios++;
     }
 
     private String nombre;
@@ -54,5 +53,4 @@ public class Criterio {
     private int valor; //Este valor será único para cada proyecto
 
     public static ArrayList<Criterio> listaCriterios = new ArrayList<Criterio>();
-    public static int cantCriterios = 0;
 }

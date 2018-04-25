@@ -8,15 +8,11 @@ import java.util.ArrayList;
 
 public class Proyecto {
 
-    public Proyecto(String identificador, String descripcion, double costo, ArrayList<Criterio> criterios) {
+    public Proyecto(String identificador, String descripcion, int costo, ArrayList<Criterio> criterios) {
         this.identificador = identificador;
         this.descripcion = descripcion;
         this.costo = costo;
         this.criterios = criterios;
-
-        //Modificar los atributos estáticos de la clase
-        Proyecto.listaProyectos.add(this);
-        Proyecto.cantProyectos++;
     }
 
     public String getIdentificador() {
@@ -35,11 +31,11 @@ public class Proyecto {
         this.descripcion = descripcion;
     }
 
-    public double getCosto() {
+    public int getCosto() {
         return costo;
     }
 
-    public void setCosto(double costo) {
+    public void setCosto(int costo) {
         this.costo = costo;
     }
 
@@ -54,11 +50,10 @@ public class Proyecto {
     //Atributos privados de cada instancia
     private String identificador;
     private String descripcion;
-    private double costo;
+    private int costo;
     private ArrayList<Criterio> criterios = new ArrayList<Criterio>();
 
     //Atributos estáticos de la clase
     public static ArrayList<Proyecto> listaProyectos = new ArrayList<Proyecto>();
-    public static int cantProyectos = 0;
 
 }
