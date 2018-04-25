@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sistema Seleccionador de Proyectos</string>
+    <string-array name="mejor_array">
+        <item>Menor</item>
+        <item>Mayor</item>
+    </string-array>
 </resources>

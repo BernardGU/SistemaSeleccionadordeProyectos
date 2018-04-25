@@ -7,12 +7,13 @@
     tools:context="com.bernard_gu.sistemaseleccionadordeproyectos.AddCriterioActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintVertical_bias="0.19999999">
 
         <TextView
             android:id="@+id/txtCriterioTag"
@@ -29,25 +30,75 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="nuevo criterio"
+            android:hint="Nuevo Criterio"
             android:inputType="textPersonName" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8">
+        app:layout_constraintVertical_bias="0.4">
 
-        <Button
-            android:id="@+id/btnAddCriterio"
-            android:layout_width="wrap_content"
+        <RadioButton
+            android:id="@+id/rdBtnCuanti"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Añadir Criterio"
+            android:text="Cuantitativo (el criterio acepta valores numéricos)"
             android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/rdBtnCuali"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cualitativo (se elige una de las categorías establecidas)"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnAddCriterio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="añadir criterio"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65">
+
+        <TextView
+            android:id="@+id/txtMejorTag"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Mejor calificación es otorgado al valor"
+            android:textAlignment="textStart"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/spnMejor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="50dp" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
