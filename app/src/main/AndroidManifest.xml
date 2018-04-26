@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddCriterioActivity" />
-        <activity android:name=".RegistroProyectosActivity"></activity>
+        <activity android:name=".RegistroProyectosActivity" />
+        <activity android:name=".AsignacionValoresActivity"></activity>
     </application>
 
 </manifest>
