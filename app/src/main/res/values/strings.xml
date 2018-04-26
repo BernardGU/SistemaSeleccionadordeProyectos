@@ -4,4 +4,11 @@
         <item>Menor</item>
         <item>Mayor</item>
     </string-array>
+    <string-array name="cualitativos_array">
+        <item>Muy Alto</item>
+        <item>Alto</item>
+        <item>Moderado</item>
+        <item>Bajo</item>
+        <item>Muy Bajo</item>
+    </string-array>
 </resources>
