@@ -44,14 +44,14 @@ public class Proyecto {
     }
 
     public void setCriterios(ArrayList<Criterio> criterios) {
-        this.criterios = criterios;
+        this.criterios = new ArrayList<>(criterios);
     }
 
     //Atributos privados de cada instancia
     private String identificador;
     private String descripcion;
     private int costo;
-    private ArrayList<Criterio> criterios = new ArrayList<Criterio>();
+    public ArrayList<Criterio> criterios = new ArrayList<Criterio>();
 
     //Atributos estáticos de la clase
     public static ArrayList<Proyecto> listaProyectos = new ArrayList<Proyecto>();

@@ -97,19 +97,21 @@ public class ValoresListView  extends ArrayAdapter<Criterio>{
             //Rellenar la fila del ListView
             holder.txtCriterio.setText((CharSequence) criterios.get(position).getNombre());
             if(criterios.get(position).getCuantitativo()) {
-                Toast.makeText(activity, Integer.toString(position)+" es cuanti", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(activity, Integer.toString(position)+" es cuanti", Toast.LENGTH_SHORT).show();
                 holder.linlayCuali.setVisibility(GONE);
                 holder.linlayCuanti.setVisibility(VISIBLE);
                 for(int i = 0; i < 8; i++) {
                     if(i < Proyecto.listaProyectos.size()) {
                         holder.edtTxt[i].setVisibility(VISIBLE);
+                        if(Proyecto.listaProyectos.get(i).getCriterios().get(position).getValor() > 0)
+                            holder.edtTxt[i].setText(Proyecto.listaProyectos.get(i).getCriterios().get(position).getValor());
                     } else {
                         holder.edtTxt[i].setVisibility(GONE);
                     }
 
                 }
             } else {
-                Toast.makeText(activity, Integer.toString(position)+" es cuali", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(activity, Integer.toString(position)+" es cuali", Toast.LENGTH_SHORT).show();
                 holder.linlayCuali.setVisibility(VISIBLE);
                 holder.linlayCuanti.setVisibility(GONE);
                 for(int i = 0; i < 8; i++) {
@@ -123,6 +125,7 @@ public class ValoresListView  extends ArrayAdapter<Criterio>{
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         // Apply the adapter to the spinner
                         holder.spn[i].setAdapter(adapter);
+                        holder.spn[i].setSelection(Proyecto.listaProyectos.get(i).getCriterios().get(position).getValor()-1);
                     } else {
                         holder.spn[i].setVisibility(GONE);
                     }

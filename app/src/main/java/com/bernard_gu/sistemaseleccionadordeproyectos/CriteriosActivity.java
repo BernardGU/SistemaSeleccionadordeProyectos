@@ -39,7 +39,7 @@ public class CriteriosActivity extends AppCompatActivity implements View.OnClick
 
         //Añadir los criterios iniciales
         if(Criterio.listaCriterios.size() == 0) {
-            Criterio.addCriterio(new Criterio("Duración", true, false, 0));
+            Criterio.addCriterio(new Criterio("Duración (en meses)", true, false, 0));
             Criterio.addCriterio(new Criterio("Valor presente neto", true, true, 0));
             Criterio.addCriterio(new Criterio("Periodo de recuperación", true, false, 0));
             Criterio.addCriterio(new Criterio("Riesgo", false, false, 0));
@@ -72,7 +72,7 @@ public class CriteriosActivity extends AppCompatActivity implements View.OnClick
             EditText et = (EditText) lstView.getChildAt(i).findViewById(R.id.edtTxtPonderacion);
 
             //Get new ponderacion
-            int ponder = Integer.parseInt(et.getText().toString());
+            int ponder = Integer.valueOf(et.getText().toString());
 
             //Update criterios
             Criterio.listaCriterios.get(i).setPonderacion(ponder);
@@ -83,7 +83,8 @@ public class CriteriosActivity extends AppCompatActivity implements View.OnClick
         }
 
         //Set the new ponderación
-        txtTotal.setText(Integer.toString(acum) + "%");
+        String var = String.valueOf(acum) + "%";
+        txtTotal.setText(var);
     }
     //This function is called when Next Button is pressed
     void nextScreen() {

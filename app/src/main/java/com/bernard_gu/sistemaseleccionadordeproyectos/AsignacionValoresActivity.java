@@ -7,8 +7,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class AsignacionValoresActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,7 +55,7 @@ public class AsignacionValoresActivity extends AppCompatActivity implements View
         for(int i = 0; i < 8; i++) {
             if(i < Proyecto.listaProyectos.size()) {
                 txt[i].setVisibility(View.VISIBLE);
-                txt[i].setText(Proyecto.listaProyectos.get(i).getIdentificador().toString());
+                txt[i].setText(Proyecto.listaProyectos.get(i).getIdentificador());
             } else {
                 txt[i].setVisibility(View.GONE);
             }
@@ -59,12 +63,57 @@ public class AsignacionValoresActivity extends AppCompatActivity implements View
     }
 
     void getValuesFromList() {
+        for(int i = 0; i < Proyecto.listaProyectos.size(); i++) {
+            //Get relevant Views
+            EditText[] edtTxt = new EditText[8];
+            Spinner[] spn = new Spinner[8];
+            View vi = lstView.getChildAt(i);
 
+            edtTxt[0] = (EditText) vi.findViewById(R.id.edtTxt1);
+            edtTxt[1] = (EditText) vi.findViewById(R.id.edtTxt2);
+            edtTxt[2] = (EditText) vi.findViewById(R.id.edtTxt3);
+            edtTxt[3] = (EditText) vi.findViewById(R.id.edtTxt4);
+            edtTxt[4] = (EditText) vi.findViewById(R.id.edtTxt5);
+            edtTxt[5] = (EditText) vi.findViewById(R.id.edtTxt6);
+            edtTxt[6] = (EditText) vi.findViewById(R.id.edtTxt7);
+            edtTxt[7] = (EditText) vi.findViewById(R.id.edtTxt8);
+            spn[0] = (Spinner) vi.findViewById(R.id.spn1);
+            spn[1] = (Spinner) vi.findViewById(R.id.spn2);
+            spn[2] = (Spinner) vi.findViewById(R.id.spn3);
+            spn[3] = (Spinner) vi.findViewById(R.id.spn4);
+            spn[4] = (Spinner) vi.findViewById(R.id.spn5);
+            spn[5] = (Spinner) vi.findViewById(R.id.spn6);
+            spn[6] = (Spinner) vi.findViewById(R.id.spn7);
+            spn[7] = (Spinner) vi.findViewById(R.id.spn8);
+            for(int j = 0; j < adbValores.getCount(); j++) {
+                if(Proyecto.listaProyectos.get(j).getCriterios().get(i).getCuantitativo()) {
+                    Proyecto.listaProyectos.get(j).criterios.get(i).setValor(Integer.valueOf(edtTxt[j].getText().toString()));
+                } else {
+                    switch(spn[j].getSelectedItem().toString()) {
+                        case "Muy Alto":
+                            Proyecto.listaProyectos.get(j).criterios.get(i).setValor(4);
+                            break;
+                        case "Alto:":
+                            Proyecto.listaProyectos.get(j).criterios.get(i).setValor(3);
+                            break;
+                        case "Moderado":
+                            Proyecto.listaProyectos.get(j).criterios.get(i).setValor(2);
+                            break;
+                        case "Bajo":
+                            Proyecto.listaProyectos.get(j).criterios.get(i).setValor(1);
+                            break;
+                        case "Muy bajo":
+                            Proyecto.listaProyectos.get(j).criterios.get(i).setValor(0);
+                            break;
+                    }
+                }
+            }
+        }
     }
 
     //This function is called when Next Button is pressed
     void nextScreen() {
-        Intent myIntent = new Intent(AsignacionValoresActivity.this, CriteriosActivity.class);
+        Intent myIntent = new Intent(AsignacionValoresActivity.this, MatrizDecisionActivity.class);
         AsignacionValoresActivity.this.startActivity(myIntent);
     }
 
@@ -72,6 +121,7 @@ public class AsignacionValoresActivity extends AppCompatActivity implements View
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imgBtnNext:
+                nextScreen();
                 break;
         }
     }

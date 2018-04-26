@@ -58,6 +58,7 @@ public class RegistroProyectosActivity extends AppCompatActivity implements View
         lstView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lista));
     }
 
+
     void addProyecto() {
         //Get information of the proyect
         String id = edtTxtId.getText().toString();

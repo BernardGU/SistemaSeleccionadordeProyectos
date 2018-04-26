@@ -64,7 +64,7 @@ public class CustomListView extends ArrayAdapter<Criterio>{
 
                 holder.txtViewCriterio = (TextView) vi.findViewById(R.id.txtViewCriterio);
                 holder.txtViewTipo = (TextView) vi.findViewById(R.id.txtViewTipo);
-                holder.edtTxtPonderacion = (EditText) vi.findViewById(R.id.edtTxtPonderacion);
+                //holder.edtTxtPonderacion = (EditText) vi.findViewById(R.id.edtTxtPonderacion);
 
 
                 vi.setTag(holder);

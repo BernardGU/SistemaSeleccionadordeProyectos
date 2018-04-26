@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".AddCriterioActivity" />
         <activity android:name=".RegistroProyectosActivity" />
-        <activity android:name=".AsignacionValoresActivity"></activity>
+        <activity android:name=".AsignacionValoresActivity" />
+        <activity android:name=".MatrizDecisionActivity"></activity>
     </application>
 
 </manifest>
