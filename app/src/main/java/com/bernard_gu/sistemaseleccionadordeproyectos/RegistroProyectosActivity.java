@@ -69,7 +69,7 @@ public class RegistroProyectosActivity extends AppCompatActivity implements View
 
     //This method is called when Next Button is pressed
     void nextScreen() {
-        Intent myIntent = new Intent(RegistroProyectosActivity.this, CriteriosActivity.class);
+        Intent myIntent = new Intent(RegistroProyectosActivity.this, AsignacionValoresActivity.class);
         RegistroProyectosActivity.this.startActivity(myIntent);
     }
 
