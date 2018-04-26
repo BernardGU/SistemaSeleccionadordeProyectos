@@ -19,7 +19,8 @@
         <activity android:name=".AddCriterioActivity" />
         <activity android:name=".RegistroProyectosActivity" />
         <activity android:name=".AsignacionValoresActivity" />
-        <activity android:name=".MatrizDecisionActivity"></activity>
+        <activity android:name=".MatrizDecisionActivity" />
+        <activity android:name=".PresupuestoActivity"></activity>
     </application>
 
 </manifest>

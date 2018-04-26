@@ -46,14 +46,14 @@ public class CriteriosActivity extends AppCompatActivity implements View.OnClick
             Criterio.addCriterio(new Criterio("Generación de tecnología", false, true, 0));
         }
 
-        Toast.makeText(this, "Criterios: " + Integer.toString(Criterio.listaCriterios.size()), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Criterios: " + Integer.toString(Criterio.listaCriterios.size()), Toast.LENGTH_SHORT).show();
 
         //Create adapter and populate ListView
         lstView = (ListView) findViewById(R.id.listview);
         adbCriterio = new CustomListView(CriteriosActivity.this, 0, Criterio.listaCriterios);
         lstView.setAdapter(adbCriterio);
         //refreshPonderaciones();
-        Toast.makeText(this, "ListView: " + Integer.toString(adbCriterio.getCount()), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "ListView: " + Integer.toString(adbCriterio.getCount()), Toast.LENGTH_SHORT).show();
     }
 
     //This funciton is called when AddCriterio Button is pressed

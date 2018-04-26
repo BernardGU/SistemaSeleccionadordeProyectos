@@ -10,6 +10,8 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MatrizDecisionActivity extends AppCompatActivity implements View.OnClickListener{
 
     ListView lstView;
@@ -62,7 +64,7 @@ public class MatrizDecisionActivity extends AppCompatActivity implements View.On
 
         //Create adapter and populate ListView
         lstView = (ListView) findViewById(R.id.listview);
-        adbPesos = new PesosListView(MatrizDecisionActivity.this, 0, Criterio.listaCriterios);
+        adbPesos = new PesosListView(MatrizDecisionActivity.this, 0,new ArrayList<Criterio>(Criterio.listaCriterios));
         lstView.setAdapter(adbPesos);
         //refreshPonderaciones();
         //Toast.makeText(this, "ListView: " + Integer.toString(adbPesos.getCount()), Toast.LENGTH_SHORT).show();
@@ -80,16 +82,26 @@ public class MatrizDecisionActivity extends AppCompatActivity implements View.On
         for(int i = 0; i < 8; i++) {
             if(i < Proyecto.listaProyectos.size()) {
                 txt_2[i].setVisibility(View.VISIBLE);
-                txt_2[i].setText(Double.toString(adbPesos.getTotales(i)));
+                txt_2[i].setText(Double.toString( adbPesos.getTotales(i)));
             } else {
                 txt_2[i].setVisibility(View.GONE);
+            }
+        }
+
+        //Set prioridades
+        for(int i = 0; i < 8; i++) {
+            if(i < Proyecto.listaProyectos.size()) {
+                txt_3[i].setVisibility(View.VISIBLE);
+                txt_3[i].setText(Integer.toString(i+1));
+            } else {
+                txt_3[i].setVisibility(View.GONE);
             }
         }
     }
 
     //This function is called when Next Button is pressed
     void nextScreen() {
-        Intent myIntent = new Intent(MatrizDecisionActivity.this, CriteriosActivity.class);
+        Intent myIntent = new Intent(MatrizDecisionActivity.this, PresupuestoActivity.class);
         MatrizDecisionActivity.this.startActivity(myIntent);
     }
 

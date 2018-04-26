@@ -12,7 +12,7 @@ public class Proyecto {
         this.identificador = identificador;
         this.descripcion = descripcion;
         this.costo = costo;
-        this.criterios = criterios;
+        this.criterios = new ArrayList<>(criterios);
     }
 
     public String getIdentificador() {
@@ -51,7 +51,7 @@ public class Proyecto {
     private String identificador;
     private String descripcion;
     private int costo;
-    public ArrayList<Criterio> criterios = new ArrayList<Criterio>();
+    public ArrayList<Criterio> criterios;
 
     //Atributos estáticos de la clase
     public static ArrayList<Proyecto> listaProyectos = new ArrayList<Proyecto>();

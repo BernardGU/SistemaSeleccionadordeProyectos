@@ -136,7 +136,7 @@ public class ValoresListView  extends ArrayAdapter<Criterio>{
 
         } catch (Exception e) {
 
-            Toast.makeText(activity, e.getMessage(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(activity, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         return vi;
     }

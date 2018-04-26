@@ -27,13 +27,16 @@ public class PesosListView  extends ArrayAdapter<Criterio> {
     private ArrayList<Criterio> criterios;
     private static LayoutInflater inflater = null;
 
-    private static double[] totales = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    private double[] totales = new double[8];
 
     public PesosListView(Activity activity, int textViewResourceId, ArrayList<Criterio> _criterios) {
         super(activity, textViewResourceId, _criterios);
+        for(int i = 0; i < 8; i++)
+            totales[i] = 0.0;
         try {
             this.activity = activity;
             this.criterios = _criterios;
+
 
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         } catch (Exception e) {
@@ -92,7 +95,10 @@ public class PesosListView  extends ArrayAdapter<Criterio> {
             for(int i = 0; i < 8; i++) {
                 if(i < Proyecto.listaProyectos.size()) {
                     holder.txt[i].setVisibility(VISIBLE);
-                    list.add(Proyecto.listaProyectos.get(i).getCriterios().get(position).getValor());
+                    list.add(Proyecto.listaProyectos.get(i).criterios.get(position).getValor());
+                    int v = Proyecto.listaProyectos.get(i).criterios.get(position).getValor();
+                    //Proyecto.listaProyectos.get(j).criterios.get(i).getValor();
+                    Toast.makeText(activity, Integer.toString(v), Toast.LENGTH_SHORT).show();
 
                 } else {
                     holder.txt[i].setVisibility(GONE);
@@ -112,7 +118,7 @@ public class PesosListView  extends ArrayAdapter<Criterio> {
 
         } catch (Exception e) {
 
-            Toast.makeText(activity, e.getMessage(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(activity, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         return vi;
     }
@@ -135,7 +141,7 @@ public class PesosListView  extends ArrayAdapter<Criterio> {
         return min;
     }
 
-    public static double getTotales(int position) {
+    public double getTotales(int position) {
         return totales[position];
     }
 }

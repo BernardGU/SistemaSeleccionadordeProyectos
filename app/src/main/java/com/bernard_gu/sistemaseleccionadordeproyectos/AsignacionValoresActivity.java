@@ -46,7 +46,7 @@ public class AsignacionValoresActivity extends AppCompatActivity implements View
 
         //Create adapter and populate ListView
         lstView = (ListView) findViewById(R.id.listview);
-        adbValores = new ValoresListView(AsignacionValoresActivity.this, 0, Criterio.listaCriterios);
+        adbValores = new ValoresListView(AsignacionValoresActivity.this, 0, new ArrayList<Criterio>(Criterio.listaCriterios));
         lstView.setAdapter(adbValores);
         //refreshPonderaciones();
         //Toast.makeText(this, "ListView: " + Integer.toString(adbValores.getCount()), Toast.LENGTH_SHORT).show();
@@ -63,7 +63,7 @@ public class AsignacionValoresActivity extends AppCompatActivity implements View
     }
 
     void getValuesFromList() {
-        for(int i = 0; i < Proyecto.listaProyectos.size(); i++) {
+        for(int i = 0; i < adbValores.getCount(); i++) {
             //Get relevant Views
             EditText[] edtTxt = new EditText[8];
             Spinner[] spn = new Spinner[8];
@@ -85,9 +85,10 @@ public class AsignacionValoresActivity extends AppCompatActivity implements View
             spn[5] = (Spinner) vi.findViewById(R.id.spn6);
             spn[6] = (Spinner) vi.findViewById(R.id.spn7);
             spn[7] = (Spinner) vi.findViewById(R.id.spn8);
-            for(int j = 0; j < adbValores.getCount(); j++) {
-                if(Proyecto.listaProyectos.get(j).getCriterios().get(i).getCuantitativo()) {
+            for(int j = 0; j < Proyecto.listaProyectos.size(); j++) {
+                if(Proyecto.listaProyectos.get(j).criterios.get(i).getCuantitativo()) {
                     Proyecto.listaProyectos.get(j).criterios.get(i).setValor(Integer.valueOf(edtTxt[j].getText().toString()));
+                    //Toast.makeText(this, "Cuanti", Toast.LENGTH_SHORT).show();
                 } else {
                     switch(spn[j].getSelectedItem().toString()) {
                         case "Muy Alto":
@@ -106,7 +107,11 @@ public class AsignacionValoresActivity extends AppCompatActivity implements View
                             Proyecto.listaProyectos.get(j).criterios.get(i).setValor(0);
                             break;
                     }
+                    //Toast.makeText(activity, Integer.toString(v), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "No Cuanti", Toast.LENGTH_SHORT).show();
                 }
+                int x = Proyecto.listaProyectos.get(j).criterios.get(i).getValor();
+                Toast.makeText(this, Integer.toString(x), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -121,6 +126,7 @@ public class AsignacionValoresActivity extends AppCompatActivity implements View
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imgBtnNext:
+                getValuesFromList();
                 nextScreen();
                 break;
         }

@@ -65,7 +65,8 @@ public class RegistroProyectosActivity extends AppCompatActivity implements View
         String desc = edtTxtDescripcion.getText().toString();
         int costo = Integer.parseInt(edtTxtCosto.getText().toString());
         //Save the new proyect information
-        Proyecto.listaProyectos.add(new Proyecto(id, desc, costo, Criterio.listaCriterios));
+
+        Proyecto.listaProyectos.add(new Proyecto(id, desc, costo, new ArrayList<Criterio>(Criterio.listaCriterios)));
     }
 
     //This method is called when Next Button is pressed
